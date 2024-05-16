@@ -3,13 +3,18 @@ import { extname, relative, resolve } from 'path';
 import { fileURLToPath } from 'node:url';
 import { glob } from 'glob';
 import react from '@vitejs/plugin-react';
-import { libInjectCss } from 'vite-plugin-lib-inject-css';
+// import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import pkg from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), libInjectCss(), tsconfigPaths()],
+  plugins: [
+    react(),
+    // Деактивировано для тестов развертки на ztackblitz
+    // libInjectCss(),
+    tsconfigPaths(),
+  ],
   build: {
     sourcemap: true,
     copyPublicDir: false,

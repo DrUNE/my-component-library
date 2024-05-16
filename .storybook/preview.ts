@@ -9,7 +9,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    repositoryUrl: `${pkg.repository.url}.git`,
+    repositoryUrl: pkg.repository.url,
   },
 };
 
