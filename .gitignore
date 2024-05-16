@@ -26,3 +26,5 @@ workspace.code-workspace
 
 # Storybook build dir
 storybook-static
+bun.lockb
+receter-my-component-library-*.tgz

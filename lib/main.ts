@@ -1,3 +1,4 @@
-export { Button } from './components/Button'
-export { Input } from './components/Input'
-export { Label } from './components/Label'
+export * from './components/Button';
+export * from './components/Input';
+export * from './components/Label';
+export * from './components/Composed';
