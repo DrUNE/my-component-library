@@ -1,0 +1,3 @@
+{
+  "startCommand": "storybook dev -p 6006"
+}
