@@ -1,4 +1,5 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react';
+import pkg from '../package.json';
 
 const preview: Preview = {
   parameters: {
@@ -8,6 +9,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    repositoryUrl: `${pkg.repository.url}.git`,
   },
 };
 

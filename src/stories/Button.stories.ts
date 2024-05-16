@@ -25,6 +25,9 @@ export const World: Story = {
   args: {
     children: 'Hello World 🌍!',
   },
+  parameters: {
+    filePath: 'src/stories/Button.stories.ts',
+  },
 };
 
 export const Mars: Story = {
