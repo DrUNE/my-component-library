@@ -3,18 +3,13 @@ import { extname, relative, resolve } from 'path';
 import { fileURLToPath } from 'node:url';
 import { glob } from 'glob';
 import react from '@vitejs/plugin-react';
-// import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import pkg from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    // Деактивировано для тестов развертки на ztackblitz
-    // libInjectCss(),
-    tsconfigPaths(),
-  ],
+  plugins: [react(), libInjectCss(), tsconfigPaths()],
   build: {
     sourcemap: true,
     copyPublicDir: false,
@@ -23,7 +18,7 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: [...Object.keys(pkg.peerDependencies || {}), 'react/jsx-runtime'],
+      external: [...Object.keys(pkg.peerDependencies || {}).map((dep) => new RegExp(dep))],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
         glob
